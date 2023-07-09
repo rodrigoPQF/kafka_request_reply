@@ -13,7 +13,9 @@ export class ProducerClass {
 	async connection() {
 		await this.producer.connect()
 	}
-
+	async client(){
+		return this.producer
+	}
 	async send(message: string) {
 		try {
 			await this.producer.send({
