@@ -11,9 +11,12 @@ export class ConsumerClass {
 	}
 
 	async connection() {
-		this.consumer.connect()
+		return this.consumer.connect()
 	}
 
+	async client(){
+		return this.consumer
+	}
 	async receiver() {
 		await this.consumer.connect();
 		await this.consumer.subscribe({ topic: 'app', fromBeginning: true });
@@ -28,4 +31,9 @@ export class ConsumerClass {
 			},
 		});
 	}
+
+	async subscribe(topic: string){
+		await this.consumer.subscribe({ topic, fromBeginning: true})
+	}
+
 }
