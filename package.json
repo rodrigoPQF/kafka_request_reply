@@ -1,19 +1,19 @@
 {
-  "name": "typescript-template",
+  "name": "kafka-request-reply",
   "version": "1.0.7",
-  "description": "A complete Node.js project template using TypeScript and following general best practices.",
+  "description": "Kafka Request Reply with changes",
   "keywords": [
     "typescript",
-    "template"
+    "request-kafka",
+    "reply-kafka"
   ],
   "author": {
-    "name": "Chris Wells",
-    "url": "https://chriswells.io"
+    "name": "Rodrigo Pereira"
   },
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chriswells0/node-typescript-template.git"
+    "url": "https://github.com/rodrigoPQF/kafka_request_reply.git"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,20 +22,8 @@
   ],
   "scripts": {
     "build": "npm run clean && npm run lint && tsc",
-    "changelog": "conventional-changelog -p angular -u",
-    "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "clean": "node -e \"var { rmdirSync, existsSync } = require('fs'), path = require('path'); ['./.nyc_output', './coverage', './dist'].forEach(fPath => {if (existsSync(path.join(__dirname, fPath))) rmdirSync(path.join(__dirname, fPath), { recursive: true })}); process.exit(0);\"",
-    "clean:all": "npm run clean && (rm -r ./node_modules || true)",
-    "cover": "nyc npm run test",
-    "cover:check": "nyc --check-coverage --reporter=lcov npm run test",
     "lint": "eslint --ext .ts --fix src/**/*.ts test/**/*.ts",
-    "preversion": "npm run build && npm run cover:check",
-    "postversion": "git push && git push --tags",
-    "prepare": "npm run build",
-    "serve": "nodemon ./src/index.ts",
-    "test": "mocha",
-    "upgrade": "npx npm-check -u",
-    "version": "npm run build && npm run changelog:update"
+    "serve": "nodemon ./src/index.ts"
   },
   "devDependencies": {
     "@types/chai": "^4.3.5",
@@ -54,12 +42,8 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "dependencies": {
+    "kafkajs": "^2.2.4",
     "sitka": "^1.1.1"
   }
 }
