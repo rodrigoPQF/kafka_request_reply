@@ -7,6 +7,7 @@
     "request-kafka",
     "reply-kafka"
   ],
+  "type": "commonjs",
   "author": {
     "name": "Rodrigo Pereira"
   },
@@ -23,7 +24,8 @@
   "scripts": {
     "build": "npm run clean && npm run lint && tsc",
     "lint": "eslint --ext .ts --fix src/**/*.ts test/**/*.ts",
-    "serve": "nodemon ./src/index.ts"
+    "producer": "npx ts-node ./src/producer_init.ts",
+    "consumer": "npx ts-node ./src/consumer_init.ts"
   },
   "devDependencies": {
     "@types/chai": "^4.3.5",
